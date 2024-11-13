@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 
 
-const connectdb = (url) => {
-    return mongoose.connect(url,
+const connectdb = (mongodb+srv://admin_Rai:1234@nodeexpressproject.5whvw.mongodb.net/NodeExpressProject?retryWrites=true&w=majority&appName=NodeExpressProject) => {
+    return mongoose.connect(mongodb+srv://admin_Rai:1234@nodeexpressproject.5whvw.mongodb.net/NodeExpressProject?retryWrites=true&w=majority&appName=NodeExpressProject,
         {
             useNewUrlParser: true,// Use the new MongoDB URL parser
             // useCreateIndex:true,
