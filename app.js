@@ -13,9 +13,9 @@ app.use(express.json())
 
 
 //######## routes
-app.get('/',(req,res)=>{
-    res.send('<h1>task mangaer app</h1>')
-})
+// app.get('/',(req,res)=>{
+//     res.send('<h1>task mangaer app</h1>')
+// })
 
 app.use('/api/v1/tasks',task)
 
