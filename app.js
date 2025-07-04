@@ -17,11 +17,12 @@ app.use(express.json())
 //     res.send('<h1>task mangaer app</h1>')
 // })
 
-app.use('/api/v1/tasks', task)
-
 app.get('/', (req, res) => {
   res.send('<h1>Task Manager API</h1>');
 });
+
+app.use('/api/v1/tasks', task)
+
 
 app.use(notFound)//404 msg
 app.use(errorHandlerMiddleware)
