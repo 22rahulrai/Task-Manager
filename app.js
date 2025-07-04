@@ -1,10 +1,10 @@
-const connectdb=require('./db/connect')
-const express=require('express')
-const app=express()
-const task=require('./routes/router')
+const connectdb = require('./db/connect')
+const express = require('express')
+const app = express()
+const task = require('./routes/router')
 require('dotenv').config()
-const notFound=require('./middleware/not-found')
-const errorHandlerMiddleware=require('./middleware/error-handler')
+const notFound = require('./middleware/not-found')
+const errorHandlerMiddleware = require('./middleware/error-handler')
 
 //###### middleware
 app.use(express.static('./public'))
@@ -17,25 +17,30 @@ app.use(express.json())
 //     res.send('<h1>task mangaer app</h1>')
 // })
 
-app.use('/api/v1/tasks',task)
+app.use('/api/v1/tasks', task)
 
 app.use(notFound)//404 msg
 app.use(errorHandlerMiddleware)
 
+// Connect to MongoDB (do not await, just call)
+connectdb(process.env.mongo_uri)
 
-const port=3000
+// Export the app for Vercel
+module.exports = app;
 
-const start=async()=>{
-    try{
-        await connectdb(process.env.mongo_uri)
-        app.listen(port,console.log(`sever is listening on port ${port} ...`))
-    }
-    catch(error){
-        console.log(error)
-    }
-}
+// const port=3000
 
-start()
+// const start=async()=>{
+//     try{
+//         await connectdb(process.env.mongo_uri)
+//         app.listen(port,console.log(`sever is listening on port ${port} ...`))
+//     }
+//     catch(error){
+//         console.log(error)
+//     }
+// }
+
+// start()
 
 
 //app.get('/api/v1/tasks')             — get all the tasks
