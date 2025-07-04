@@ -1,61 +1,93 @@
-# Task-Manager
-Daily Life App
+# Task Manager API
 
-## Description
-
-A modern Task Manager app built with Node.js, Express, and MongoDB. This application helps users manage their daily life by organizing and tracking tasks efficiently.
+A simple Task Manager REST API built with Node.js, Express, and MongoDB (Mongoose). This project is designed to be deployed on Vercel as a serverless function.
 
 ## Features
 
-*   **Task Management:** Create, read, update, and delete tasks.
-*   **MongoDB Integration:** Utilizes MongoDB for persistent data storage.
-*   **Express.js Framework:** Built on the robust Express.js framework for handling routing and middleware.
-*   **Environment Variables:** Uses `dotenv` to manage environment-specific configurations.
+-   Create, read, update, and delete tasks
+-   MongoDB database integration
+-   Express.js RESTful API
+-   Error handling middleware
+-   Async/await support
 
-## Technologies Used
+## Project Structure
 
-*   Node.js
-*   Express.js
-*   MongoDB
-*   Mongoose
-*   dotenv
+```
+app.js                # Main entry point
+controllers/          # Route handler logic
+  n1task.js           
+  task.js             
+db/
+  connect.js          # MongoDB connection logic
+middleware/
+  async.js            # Async error wrapper
+  error-handler.js    # Error handler middleware
+  not-found.js        # 404 handler
+models/
+  tasks.js            # Mongoose Task schema
+public/               # Static frontend files
+routes/
+  router.js           # API routes
+vercel.json           # Vercel deployment config
+.env                  # Environment variables (not committed)
+```
 
-## Installation
+## Getting Started
 
-1.  **Clone the repository:**
+### Prerequisites
 
-    ```bash
-    git clone <repository_url>
+-   Node.js (14.x or higher recommended)
+-   MongoDB database (local or Atlas)
+
+### Installation
+
+1.  Clone the repository:
+
+    ```sh
+    git clone https://github.com/22rahulrai/Task-Manager.git
     cd Task-Manager
     ```
 
-2.  **Install dependencies:**
+2.  Install dependencies:
 
-    ```bash
+    ```sh
     npm install
     ```
 
-3.  **Configure environment variables:**
+3.  Create a `.env` file in the root directory and add your MongoDB URI:
 
-    *   Create a `.env` file in the root directory.
-    *   Add your MongoDB connection string and any other necessary environment variables.  For example:
-
-        ```
-        MONGODB_URI=mongodb://localhost:27017/task-manager
-        ```
-
-## Usage
-
-1.  **Start the server:**
-
-    ```bash
-    npm start
+    ```env
+    mongo_uri=your_mongodb_connection_string
     ```
 
-2.  **Access the application:**
+### Running Locally
 
-    Open your web browser or use a tool like Postman to interact with the API endpoints.  Refer to the API documentation (if available) or the source code for specific endpoints and request formats.
+```sh
+npm start
+```
+
+The server will start on `http://localhost:3000`.
+
+### API Endpoints
+
+-   `GET    /api/v1/tasks`        - Get all tasks
+-   `POST   /api/v1/tasks`        - Create a new task
+-   `GET    /api/v1/tasks/:id`    - Get a single task
+-   `PATCH  /api/v1/tasks/:id`    - Update a task
+-   `DELETE /api/v1/tasks/:id`    - Delete a task
+
+### Deployment (Vercel)
+
+1.  Push your code to GitHub.
+2.  Import your repository into Vercel.
+3.  In Vercel dashboard, add your `mongo_uri` as an Environment Variable.
+4.  Deploy!
+
+## Notes
+
+-   Do **not** commit your `.env` file. It is already in `.gitignore`.
+-   For Vercel, ensure you export your Express app (not use `app.listen`).
 
 ## License
 
-MIT License
+MIT
