@@ -4,7 +4,11 @@
   "description": "",
   "main": "app.js",
   "engines": {
+<<<<<<< HEAD
     "node": "14.x"
+=======
+    "node": "20.x"
+>>>>>>> 40379e1580e47a6e0e49c9b4a64492da8bd7d2ed
   },
   "scripts": {
     "start": "node app.js"
