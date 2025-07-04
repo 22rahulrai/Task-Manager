@@ -2,7 +2,7 @@
 // Mongoose is an Object Data Modeling (ODM) library for MongoDB and Node.js. It provides a schema-based solution to model application data.
 const mongoose=require('mongoose')
 
-mongoose.set('useFindAndModify', false);// Add this line to disable the warning globally
+// mongoose.set('useFindAndModify', false);// Add this line to disable the warning globally
 
 const taskschema=new mongoose.Schema({ //This line creates a Mongoose schema for a collection
     // name:String,

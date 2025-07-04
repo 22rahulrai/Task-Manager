@@ -44,3 +44,5 @@ start()
 // app.patch(/api/vl/tasks/:id)        — update task (usually we use put but now we are using patch)
 // app.delete('/api/vl/tasks/:id')     — delete task
 
+// .env
+//mongodb+srv://admin_Rai:1234@nodeexpressproject.5whvw.mongodb.net/NodeExpressProject?retryWrites=true&w=majority

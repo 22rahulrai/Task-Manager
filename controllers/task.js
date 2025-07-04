@@ -1,5 +1,5 @@
 const Task=require('../models/tasks')
-const asyncWrapper=require('./middleware/async')
+// const asyncWrapper=require('./middleware/async')
 
 
 const getalltask= async (req,res)=>{
